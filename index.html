@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Repaso interactivo de 25 preguntas de opción múltiple sobre la Unidad 3: Teoría del consumidor, Economía Empresarial AEF-1071.">
+  <title>Repaso Unidad 3 · Teoría del consumidor · Economía Empresarial</title>
+  <style>
+    :root {--wine:#711a3f;--wine-dark:#4f102d;--orange:#e87834;--cream:#fff7f0;--paper:#fff;--ink:#262332;--muted:#716975;--line:#e7dfe4;--green:#166c4c;--red:#a02f40;--shadow:0 14px 40px rgba(77,31,50,.09)}
+    * {box-sizing:border-box}
+    body { margin:0; background:#f9f6f8; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; font-size:16px; line-height:1.5}
+    button {font:inherit;cursor:pointer}
+    button:disabled {cursor:not-allowed;opacity:.48}
+    button:focus-visible,input:focus-visible,.option:focus-visible {outline:3px solid var(--orange);outline-offset:3px}
+    .masthead {background:linear-gradient(115deg,var(--wine-dark),var(--wine) 60%,#972f4b);color:#fff;padding:28px 24px 31px;border-bottom:5px solid var(--orange)}
+    .inner {max-width:1180px;margin:0 auto}
+    .eyebrow {text-transform:uppercase;letter-spacing:.13em;font-weight:750;font-size:.76rem;color:#ffd3af}
+    .headrow {display:flex;justify-content:space-between;gap:20px;align-items:start}
+    h1 {font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.14;margin:8px 0 9px;letter-spacing:-.025em}
+    .subtitle {color:#f9e3ec;max-width:740px;margin:0;font-size:.97rem}
+    .brand {min-width:148px;text-align:right;font-weight:730;font-size:.9rem;color:#ffeadd;line-height:1.5}
+    .brand strong {font-size:1.25rem;letter-spacing:.04em;display:block;color:#fff}
+    .wrap {max-width:1180px;margin:26px auto;padding:0 24px 44px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:22px;align-items:start}
+    .panel {background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .intro {padding:16px 22px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;justify-content:space-between}
+    .intro-info {color:var(--muted);font-size:.91rem}
+    .intro-info strong {color:var(--wine)}
+    .progress-track {height:8px;overflow:hidden;background:#f1e7ec;border-radius:12px;margin:0 0 20px}
+    .progress-bar {background:linear-gradient(90deg,var(--wine),var(--orange));height:100%;width:0;transition:width .25s}
+    .content {padding:clamp(20px,3vw,34px)}
+    .smallline {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.84rem;font-weight:700}
+    .chapter {color:var(--wine);background:#faedf2;border-radius:999px;padding:6px 11px}
+    .difficulty {border:1px solid var(--line);border-radius:999px;padding:5px 10px}
+    h2 {font-size:clamp(1.21rem,2vw,1.55rem);line-height:1.42;margin:22px 0 19px;font-weight:740;letter-spacing:-.01em;max-width:60ch}
+    .options {display:grid;gap:11px}
+    .option {width:100%;border:1.5px solid #e5dce2;border-radius:12px;background:#fff;text-align:left;display:flex;align-items:flex-start;gap:13px;padding:15px 15px;min-height:62px;transition:background .15s,border-color .15s}
+    .option:hover:not(:disabled) {border-color:#c18fa4;background:#fffafc}
+    .option[data-selected="true"] {background:#faf0f5;border-color:var(--wine);box-shadow:0 0 0 1px var(--wine) inset}
+    .option .letter {flex:0 0 28px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid #d7c7d0;color:var(--wine);font-weight:800;font-size:.87rem}
+    .option[data-selected="true"] .letter {color:#fff;background:var(--wine);border-color:var(--wine)}
+    .option[data-correct="true"] {background:#eefaf2;border-color:#65ae87}
+    .option[data-wrong="true"] {background:#fff0f1;border-color:#d89097}
+    .option:disabled {opacity:1}
+    .hint {background:var(--cream);border:1px solid #f2dbc7;border-radius:11px;padding:13px 15px;font-size:.91rem;margin-top:18px;color:#71452d}
+    .hint summary {font-weight:710;cursor:pointer;user-select:none}
+    .hint p {margin:8px 0 1px}
+    .feedback {margin-top:20px;border-radius:13px;padding:17px 18px;border-left:5px solid}
+    .feedback.good {background:#ecf9f3;border-color:#31815b}
+    .feedback.bad {background:#fff2f1;border-color:#b74d59}
+    .feedback h3 {font-size:1rem;margin:0 0 6px}
+    .feedback p {font-size:.93rem;margin:0}
+    .controls {display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);margin-top:28px;padding-top:22px}
+    .left-controls,.right-controls {display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+    .btn {border:1px solid #d9c9d2;padding:11px 18px;border-radius:10px;color:var(--wine);background:#fff;font-weight:700;font-size:.92rem}
+    .btn:hover:not(:disabled) {background:#fcf2f6}
+    .btn-primary {background:var(--wine);border-color:var(--wine);color:white}
+    .btn-primary:hover:not(:disabled) {background:var(--wine-dark)}
+    .btn-orange {background:var(--orange);color:#fff;border-color:var(--orange)}
+    .btn-orange:hover:not(:disabled) {background:#d96524}
+    aside {position:sticky;top:18px;padding:21px 20px}
+    aside h3 {font-size:1rem;margin:0 0 8px}
+    .metric {font-size:2.2rem;color:var(--wine);font-weight:820;line-height:1.2;margin:6px 0}
+    .side-caption {color:var(--muted);font-size:.87rem;margin:0 0 18px}
+    .navgrid {display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:13px 0 19px}
+    .navnum {border:1px solid #e3d5dc;border-radius:9px;min-height:38px;background:#fff;color:#68606a;font-weight:700;font-size:.83rem}
+    .navnum[data-active="true"] {box-shadow:0 0 0 2px var(--orange);border-color:var(--orange)}
+    .navnum[data-state="correct"] {background:#e5f5eb;border-color:#83bba0;color:#166c4c}
+    .navnum[data-state="wrong"] {background:#fae9ec;border-color:#de9ea6;color:#a02f40}
+    .legend {display:grid;gap:6px;color:var(--muted);font-size:.78rem}
+    .key {display:inline-block;height:9px;width:9px;border-radius:50%;margin-right:7px}
+    .key.green {background:#39835f}.key.red {background:#bb5a66}.key.gray {background:#ccc0c7}
+    .topics {margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+    .topic {display:flex;justify-content:space-between;gap:12px;font-size:.84rem;padding:8px 0;color:#514a54;border-bottom:1px solid #f3edf0}
+    .topic:last-child {border-bottom:0}
+    .topic strong {color:var(--wine);white-space:nowrap}
+    .result {display:none;padding:28px 30px}
+    .result h2 {font-size:1.8rem;margin:0 0 8px}
+    .score {font-size:3.6rem;font-weight:850;color:var(--wine);line-height:1.2}
+    .result-note {color:var(--muted);margin:8px 0 21px}
+    .review-row {border-top:1px solid var(--line);padding:15px 0}
+    .review-row h4 {margin:0 0 6px;font-size:.93rem}
+    .review-row p {margin:4px 0;font-size:.89rem}
+    .answer-good {color:var(--green);font-weight:750}.answer-bad {color:var(--red);font-weight:750}
+    .footer {text-align:center;color:var(--muted);font-size:.8rem;padding:0 20px 25px}
+    .hide {display:none!important}
+    @media (max-width:900px) {.wrap {grid-template-columns:1fr}.brand {display:none}aside {position:static;order:-1}.navgrid {grid-template-columns:repeat(13,minmax(25px,1fr))}.intro {margin-bottom:14px}}
+    @media (max-width:650px) {.masthead {padding:23px 17px}.wrap {padding:0 12px 24px;margin-top:13px}.content {padding:18px 16px}.navgrid {grid-template-columns:repeat(5,1fr)}.options {gap:9px}.btn {padding:10px 12px}.intro {padding:14px 16px}.smallline {align-items:start}}
+    @media print {body {background:#fff} .masthead {background:#fff!important;color:#000!important;border-color:#999;padding:5px 0 12px}.subtitle,.eyebrow {color:#333!important}.wrap,.footer,.intro,.progress-track {display:none!important}.print-sheet {display:block!important;padding:0 24px}.print-item {page-break-inside:avoid;margin-bottom:20px}.print-item h3 {font-size:12pt;margin-bottom:5px}.print-item li {font-size:10pt;margin-bottom:3px} }
+  </style>
+</head>
+<body>
+<header class="masthead"><div class="inner headrow">
+ <div><div class="eyebrow">TecNM · Campus Progreso · AEF-1071</div>
+ <h1>Teoría del consumidor<br>Repaso interactivo · Unidad 3</h1>
+ <p class="subtitle">25 reactivos originales de opción múltiple para repasar utilidad, curvas de indiferencia, presupuesto, Engel y compensación de Hicks.</p></div>
+ <div class="brand">INGENIERÍA EN<br><strong>GESTIÓN EMPRESARIAL</strong>Economía Empresarial</div>
+</div></header>
+<main class="wrap" id="app">
+ <section aria-label="Cuestionario">
+  <div class="panel intro">
+    <div class="intro-info"><strong>25 preguntas</strong> · 4 opciones por pregunta · 4 puntos por respuesta correcta</div>
+    <div class="intro-info">Responde, pulsa <strong>Comprobar</strong> y revisa la explicación.</div>
+  </div>
+  <div class="progress-track" role="progressbar" aria-label="Preguntas comprobadas" aria-valuemin="0" aria-valuemax="25" aria-valuenow="0" id="barbox"><div class="progress-bar" id="bar"></div></div>
+  <div class="panel content" id="quiz">
+    <div class="smallline"><span id="position">Pregunta 1 de 25</span><span id="topic" class="chapter">3.1</span><span id="level" class="difficulty">Aplicación</span></div>
+    <h2 id="stem"></h2>
+    <div id="answers" class="options" role="group" aria-label="Opciones de respuesta"></div>
+    <details class="hint" id="hint"><summary>Ver pista de estudio</summary><p id="hintText"></p></details>
+    <div id="feedback" role="status" aria-live="polite"></div>
+    <div class="controls">
+      <div class="left-controls"><button class="btn" id="prev">← Anterior</button><button class="btn" id="next">Siguiente →</button></div>
+      <div class="right-controls"><button class="btn btn-primary" id="check">Comprobar respuesta</button><button class="btn btn-orange hide" id="finish">Ver resultados</button></div>
+    </div>
+  </div>
+  <section class="panel result" id="results" aria-live="polite">
+    <div class="eyebrow" style="color:var(--wine)">Resultados del repaso</div><h2>Evaluación finalizada</h2>
+    <div class="score" id="score"></div><p class="result-note" id="scoreNote"></p>
+    <div id="topicResults"></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin:19px 0 12px"><button id="retry" class="btn btn-primary">Volver a practicar las 25</button><button class="btn" id="print" onclick="window.print()">Imprimir preguntas</button></div>
+    <h3 style="margin:26px 0 0">Revisión y explicaciones</h3><div id="review"></div>
+  </section>
+ </section>
+ <aside class="panel" aria-label="Seguimiento del repaso">
+   <h3>Progreso del estudiante</h3><div class="metric" id="progressNumber">0/25</div><p class="side-caption">Preguntas comprobadas</p>
+   <h3>Navegar por pregunta</h3><div class="navgrid" id="nav"></div>
+   <div class="legend"><span><i class="key green"></i>Respuesta correcta</span><span><i class="key red"></i>Respuesta incorrecta</span><span><i class="key gray"></i>Sin comprobar</span></div>
+   <div class="topics"><h3>Temas evaluados</h3><div id="topicCounts"></div></div>
+   <p class="side-caption" style="border-top:1px solid var(--line);padding-top:17px;margin-top:18px;margin-bottom:0">Material de práctica. Las preguntas son nuevas y no reproducen literalmente el examen.</p>
+ </aside>
+</main>
+<div id="printSheet" class="print-sheet hide"></div>
+<footer class="footer">Economía Empresarial · Ingeniería en Gestión Empresarial · TecNM Campus Progreso · Recurso de estudio sin conexión a internet</footer>
+<script>
+'use strict';
+const QUESTIONS = [{"id": 1, "topic": "3.1 · Utilidad total y marginal", "question": "Una tienda registra una utilidad total de 52 unidades al consumir cuatro porciones de un producto y de 59 al consumir cinco. ¿Cuál es la utilidad marginal de la quinta porción?", "options": ["5 unidades", "7 unidades", "52 unidades", "59 unidades"], "answer": 1, "explanation": "La utilidad marginal es el cambio de la utilidad total: UM₅ = UT₅ − UT₄ = 59 − 52 = 7 unidades.", "hint": "Compara la satisfacción acumulada justo antes y después de la unidad adicional.", "level": "Cálculo"}, {"id": 2, "topic": "3.1 · Utilidad total y marginal", "question": "En una cafetería, la utilidad total es de 38 unidades al consumir cuatro postres y permanece en 38 al consumir cinco. ¿Qué significa la quinta unidad?", "options": ["La utilidad marginal es cero", "La utilidad total se vuelve negativa", "La utilidad marginal es de 38", "La satisfacción total aumenta cinco unidades"], "answer": 0, "explanation": "Como la utilidad total no cambia, UM₅ = 38 − 38 = 0. La quinta unidad no añade satisfacción.", "hint": "Considera qué ocurre cuando consumir una unidad adicional deja intacto el total.", "level": "Interpretación"}, {"id": 3, "topic": "3.1 · Utilidad total y marginal", "question": "Un estudiante registra 48 unidades de utilidad total después de cinco consumos y 45 después de seis. ¿Qué revela la sexta unidad?", "options": ["Aporta 3 unidades de utilidad", "Aporta −3 unidades de utilidad", "La utilidad marginal es cero", "La utilidad total aumenta 45 unidades"], "answer": 1, "explanation": "UM₆ = 45 − 48 = −3. La sexta unidad reduce la utilidad total en tres unidades.", "hint": "Calcula el cambio de la utilidad total y conserva su signo.", "level": "Cálculo"}, {"id": 4, "topic": "3.1 · Utilidad total y marginal", "question": "Un consumidor obtiene utilidades marginales sucesivas de 11, 8, 5 y 2 al adquirir cuatro unidades. ¿Qué ocurre con la utilidad total durante ese consumo?", "options": ["Disminuye en todas las unidades", "Se mantiene constante desde la segunda", "Aumenta, pero cada vez menos", "Aumenta con incrementos cada vez mayores"], "answer": 2, "explanation": "Todas las utilidades marginales son positivas, por lo que la utilidad total aumenta; como son decrecientes, cada aumento es menor.", "hint": "Distingue el signo de la utilidad marginal de la dirección en que cambia.", "level": "Interpretación"}, {"id": 5, "topic": "3.1 · Utilidad total y marginal", "question": "Una persona afirma que prefiere la cesta A sobre la B y la B sobre la C, sin asignar cifras a su satisfacción. ¿Qué enfoque de utilidad utiliza?", "options": ["Cardinal", "Marginal", "Total", "Ordinal"], "answer": 3, "explanation": "La utilidad ordinal permite ordenar preferencias sin medir la satisfacción en unidades numéricas.", "hint": "Pregúntate si se está midiendo una magnitud o solamente ordenando alternativas.", "level": "Comprensión"}, {"id": 6, "topic": "3.2 · Curvas de indiferencia", "question": "Con la función U(X,Y)=XY, una persona compara las cestas A=(6,18) y B=(9,12). ¿Cómo se relacionan?", "options": ["A genera mayor utilidad", "B genera mayor utilidad", "Ambas generan la misma utilidad", "No pueden compararse con esa función"], "answer": 2, "explanation": "U(A)=6×18=108 y U(B)=9×12=108. Ambas combinaciones pertenecen a la misma curva de indiferencia.", "hint": "Evalúa la función en cada cesta antes de compararlas.", "level": "Cálculo"}, {"id": 7, "topic": "3.2 · Curvas de indiferencia", "question": "Una empresa modela las preferencias de un consumidor mediante U(X,Y)=XY. Si el consumidor elige X=10 e Y=15, ¿cuál es la TMS=UMx/UMy?", "options": ["0.67", "1.00", "1.50", "2.50"], "answer": 2, "explanation": "Con U=XY, UMx=Y y UMy=X. Por tanto, TMS=Y/X=15/10=1.50.", "hint": "Para la TMS utiliza las utilidades marginales de los dos bienes.", "level": "Cálculo"}, {"id": 8, "topic": "3.2 · Curvas de indiferencia", "question": "En un mapa de indiferencia, U₂ se encuentra completamente más arriba y a la derecha que U₁. Si ambos bienes son deseables, ¿qué indica?", "options": ["U₁ produce más satisfacción", "U₂ representa mayor satisfacción", "Ambas curvas deben cruzarse", "Las dos curvas tienen el mismo nivel de utilidad"], "answer": 1, "explanation": "Bajo preferencias monótonas, una curva situada más lejos del origen representa mayor utilidad que otra inferior.", "hint": "Piensa en qué significa disponer de combinaciones preferidas de dos bienes deseables.", "level": "Interpretación"}, {"id": 9, "topic": "3.2 · Curvas de indiferencia", "question": "Una empresa vende impresoras y cartuchos que el consumidor necesita en proporciones fijas. ¿Qué forma tienen las curvas de indiferencia del modelo de complementarios perfectos?", "options": ["Rectas descendentes", "Curvas circulares", "Curvas en forma de L", "Rectas verticales"], "answer": 2, "explanation": "Los complementarios perfectos se representan mediante curvas en forma de L: consumir más de un bien sin el complementario no incrementa la utilidad.", "hint": "Considera qué sucede cuando los bienes solo son útiles en una combinación fija.", "level": "Comprensión"}, {"id": 10, "topic": "3.2 · Curvas de indiferencia", "question": "En un modelo de bienes sustitutos perfectos, una unidad de X siempre reemplaza a una cantidad fija de Y sin cambiar la utilidad. ¿Cómo son sus curvas de indiferencia?", "options": ["Rectas con pendiente constante", "Curvas convexas de pendiente variable", "Curvas en forma de L", "Curvas de Engel con pendiente positiva"], "answer": 0, "explanation": "Los sustitutos perfectos tienen curvas de indiferencia rectas porque la tasa marginal de sustitución es constante.", "hint": "Relaciona la forma de la curva con la constancia de la disposición a intercambiar bienes.", "level": "Comprensión"}, {"id": 11, "topic": "3.2 · Restricción y equilibrio", "question": "Un consumidor tiene $210 de ingreso; Px=$7 y Py=$14. ¿Cómo se clasifica la cesta X=10, Y=10?", "options": ["Es inalcanzable con ese presupuesto", "Está exactamente sobre la recta presupuestaria", "Está dentro del presupuesto sin agotarlo", "Supera el presupuesto en $70"], "answer": 1, "explanation": "El gasto es 7(10)+14(10)=70+140=$210. La cesta es asequible y agota exactamente el ingreso.", "hint": "Obtén primero el gasto total de la cesta y compáralo con el ingreso.", "level": "Cálculo"}, {"id": 12, "topic": "3.2 · Restricción y equilibrio", "question": "El precio de X disminuye, pero el precio de Y y el ingreso permanecen constantes. ¿Qué ocurre con la recta presupuestaria?", "options": ["Se desplaza paralelamente hacia adentro", "Gira hacia adentro respecto del intercepto en Y", "Gira hacia afuera respecto del intercepto en Y", "Permanece sin cambios"], "answer": 2, "explanation": "Al disminuir Px, el intercepto M/Px aumenta; como Py no cambia, el intercepto en Y queda fijo. La recta gira hacia afuera.", "hint": "Analiza por separado las cantidades máximas de X e Y que permite el presupuesto.", "level": "Aplicación"}, {"id": 13, "topic": "3.2 · Restricción y equilibrio", "question": "Una clienta obtiene UMx=15 y UMy=24. Si Px=$5 y Py=$6, ¿hacia cuál bien convendría reasignar parte del gasto para aumentar la utilidad, suponiendo ajustes divisibles?", "options": ["Hacia X, porque su utilidad marginal absoluta es mayor", "Hacia Y, porque su utilidad por peso es mayor", "Hacia X, porque su precio es menor", "No hay necesidad de reasignar: ya está en equilibrio"], "answer": 1, "explanation": "UMx/Px=15/5=3 y UMy/Py=24/6=4. El gasto adicional en Y aporta mayor utilidad por peso que en X.", "hint": "No compares solo las utilidades marginales: relaciona cada una con lo que cuesta el bien.", "level": "Aplicación"}, {"id": 14, "topic": "3.2 · Restricción y equilibrio", "question": "Una persona tiene ingreso de $360, Px=$12, Py=$6 y U(X,Y)=XY. ¿Qué cesta maximiza la utilidad si X e Y pueden adquirirse en cantidades divisibles?", "options": ["X=15, Y=30", "X=20, Y=20", "X=10, Y=40", "X=30, Y=15"], "answer": 0, "explanation": "Con U=XY, la condición Y/X=Px/Py=2 implica Y=2X. Sustituyendo: 12X+6(2X)=360, X=15 e Y=30; U=450.", "hint": "Combina la condición de tangencia con la restricción presupuestaria.", "level": "Cálculo"}, {"id": 15, "topic": "3.2 · Restricción y equilibrio", "question": "Para U(X,Y)=X²Y, las utilidades marginales son UMx=2XY y UMy=X². Si X=3 e Y=6, ¿cuál es la TMS?", "options": ["2", "3", "4", "6"], "answer": 2, "explanation": "TMS=UMx/UMy=(2XY)/(X²)=2Y/X. Sustituyendo X=3, Y=6: TMS=2(6)/3=4.", "hint": "Simplifica la razón entre ambas utilidades marginales antes de sustituir.", "level": "Cálculo"}, {"id": 16, "topic": "3.3 · Curva de Engel", "question": "Con precios constantes, una familia aumenta su ingreso mensual de $2,000 a $2,500 y su consumo de cuadernos pasa de 4 a 6 unidades. ¿Cómo se clasifica este bien en ese intervalo?", "options": ["Inferior", "Normal", "Giffen", "Complementario perfecto"], "answer": 1, "explanation": "El consumo del bien aumenta cuando crece el ingreso, manteniendo los precios constantes. En ese intervalo se comporta como bien normal.", "hint": "Observa la dirección de los cambios de ingreso y cantidad.", "level": "Aplicación"}, {"id": 17, "topic": "3.3 · Curva de Engel", "question": "Al aumentar el ingreso de un hogar de $3,000 a $4,000, la compra mensual de un producto económico baja de 10 a 7 unidades, sin cambios de precios. ¿Qué revela?", "options": ["Se trata de un bien normal", "El producto es un bien inferior", "Existe efecto sustitución por cambio de precio", "La curva de Engel es necesariamente vertical"], "answer": 1, "explanation": "A precios constantes, la cantidad demandada disminuye cuando crece el ingreso: es un comportamiento de bien inferior.", "hint": "Separa los cambios por ingreso de los provocados por precios.", "level": "Interpretación"}, {"id": 18, "topic": "3.3 · Curva de Engel", "question": "Una consultora desea construir una curva de Engel para un alimento, manteniendo constantes los precios. ¿Qué variables necesita relacionar?", "options": ["Precio del propio alimento y cantidad adquirida", "Precio de un sustituto y gasto empresarial", "Ingreso del consumidor y cantidad adquirida", "Utilidad marginal y tasa de interés"], "answer": 2, "explanation": "La curva de Engel relaciona el ingreso del consumidor con la cantidad demandada del bien, dados los precios.", "hint": "Recuerda cuál es la variable que cambia a lo largo de una curva de Engel.", "level": "Comprensión"}, {"id": 19, "topic": "3.3 · Curva de Engel", "question": "Cuando el ingreso de una familia aumenta 10%, su demanda de un bien crece 6% (variaciones pequeñas y precios constantes). ¿Cuál es la elasticidad ingreso aproximada y la clasificación?", "options": ["0.60; bien normal necesario", "1.67; bien normal de lujo", "−0.60; bien inferior", "0; bien neutro al ingreso"], "answer": 0, "explanation": "La elasticidad ingreso aproximada es 6%/10%=0.60. Al estar entre 0 y 1, el bien es normal y se clasifica como necesario.", "hint": "Relaciona los porcentajes de variación; después interpreta signo y magnitud.", "level": "Cálculo"}, {"id": 20, "topic": "3.3 · Curva de Engel", "question": "En un estudio de consumo, las compras de cierto alimento primero aumentan con el ingreso, pero después disminuyen cuando los hogares alcanzan ingresos altos. ¿Qué interpretación es consistente?", "options": ["El bien es Giffen en ambos tramos", "Siempre es normal, sin importar el ingreso", "Es inferior a ingresos bajos y normal a altos", "Es normal en el primer tramo e inferior en el segundo"], "answer": 3, "explanation": "El signo de la relación ingreso-cantidad cambia: pendiente positiva al principio (normal) y negativa posteriormente (inferior).", "hint": "La clasificación puede variar entre intervalos de ingreso.", "level": "Interpretación"}, {"id": 21, "topic": "3.4–3.5 · Efectos y casos prácticos", "question": "Tras aumentar el precio de X, se observan las cestas A=(28,14), B=(21,19) y C=(17,17), donde B es la cesta compensada de Hicks. ¿Cuál es el efecto sustitución sobre X?", "options": ["−11 unidades", "−7 unidades", "−4 unidades", "+7 unidades"], "answer": 1, "explanation": "El efecto sustitución de Hicks sobre X es X_B−X_A=21−28=−7 unidades.", "hint": "Usa el tramo que une la situación inicial con la compensada.", "level": "Cálculo"}, {"id": 22, "topic": "3.4–3.5 · Efectos y casos prácticos", "question": "El precio de X disminuye. Un análisis de Hicks observa A=(8,20), B=(13,16) y C=(16,18). ¿Cuál es el efecto ingreso sobre X?", "options": ["−3 unidades", "+3 unidades", "+5 unidades", "+8 unidades"], "answer": 1, "explanation": "El efecto ingreso sobre X es X_C−X_B=16−13=+3 unidades.", "hint": "Compara la cesta final con la cesta que mantiene la utilidad original.", "level": "Cálculo"}, {"id": 23, "topic": "3.4–3.5 · Efectos y casos prácticos", "question": "Baja el precio de X. La cantidad inicial es 10, la compensada de Hicks es 17 y la cantidad final es 15. ¿Cómo se clasifica X a partir del efecto ingreso?", "options": ["Bien normal", "Bien inferior, pero no Giffen en este cambio", "Bien Giffen", "Bien neutro al ingreso"], "answer": 1, "explanation": "El efecto ingreso es 15−17=−2: X es inferior. El efecto total es 15−10=+5, por lo que no presenta respuesta Giffen en este cambio.", "hint": "Separa el cambio compensado del cambio ocasionado por el poder adquisitivo.", "level": "Interpretación"}, {"id": 24, "topic": "3.4–3.5 · Efectos y casos prácticos", "question": "Después de un cambio en los precios relativos, una empresa calcula una cesta compensada de Hicks B. ¿Qué caracteriza a esa cesta?", "options": ["Mantiene necesariamente el ingreso monetario original", "Conserva las cantidades originales de X e Y", "Permite mantener la utilidad inicial con el gasto mínimo a los nuevos precios", "Asegura que el consumidor alcance una utilidad superior"], "answer": 2, "explanation": "La compensación hicksiana minimiza el gasto a los nuevos precios, sujeto a conservar el nivel de utilidad inicial.", "hint": "Distingue preservar el bienestar de preservar el ingreso monetario.", "level": "Comprensión"}, {"id": 25, "topic": "3.4–3.5 · Efectos y casos prácticos", "question": "Un consumidor tiene U(X,Y)=XY y desea conservar U₀=162. Con los nuevos precios Px=$9 y Py=$2, ¿qué cesta compensada de Hicks minimiza el gasto?", "options": ["X=9, Y=18", "X=6, Y=27", "X=3, Y=54", "X=18, Y=9"], "answer": 1, "explanation": "En equilibrio, Y/X=9/2=4.5. Entonces X(4.5X)=162, X²=36, X=6, Y=27. Su gasto es 9(6)+2(27)=$108, menor que en las otras cestas.", "hint": "Iguala la TMS al precio relativo y conserva la utilidad objetivo.", "level": "Cálculo"}];
+const LETTERS=['A','B','C','D'];
+let current=0;
+let selections=Array(QUESTIONS.length).fill(null);
+let graded=Array(QUESTIONS.length).fill(false);
+let finalized=false;
+const el=(id)=>document.getElementById(id);
+const topics=[...new Set(QUESTIONS.map(q=>q.topic))];
+function correctCount(){return QUESTIONS.filter((q,i)=>graded[i]&&selections[i]===q.answer).length;}
+function gradedCount(){return graded.filter(Boolean).length;}
+function make(tag,css,text){const node=document.createElement(tag);if(css)node.className=css;if(text!==undefined)node.textContent=text;return node;}
+function render(){
+ const q=QUESTIONS[current];
+ el('position').textContent=`Pregunta ${current+1} de ${QUESTIONS.length}`;
+ el('topic').textContent=q.topic;
+ el('level').textContent=q.level;
+ el('stem').textContent=q.question;
+ el('hintText').textContent=q.hint;
+ el('hint').open=false;
+ el('answers').replaceChildren();
+ q.options.forEach((o,j)=>{
+  let b=make('button','option');b.type='button';b.dataset.selected=String(selections[current]===j);b.disabled=graded[current];
+  if(graded[current]){if(j===q.answer)b.dataset.correct='true';else if(j===selections[current])b.dataset.wrong='true';}
+  b.setAttribute('aria-pressed',String(selections[current]===j));
+  b.append(make('span','letter',LETTERS[j]),make('span','',o));
+  b.addEventListener('click',()=>{if(graded[current])return;selections[current]=j;render();});
+  el('answers').append(b);
+ });
+ const fb=el('feedback'); fb.replaceChildren();
+ if(graded[current]){
+  const ok=selections[current]===q.answer;const box=make('div','feedback '+(ok?'good':'bad'));
+  box.append(make('h3','',ok?'Respuesta correcta':'Respuesta incorrecta'),make('p','',q.explanation));
+  fb.append(box);
+ }
+ el('check').disabled=graded[current]||selections[current]===null;
+ el('check').classList.toggle('hide',graded[current]);
+ el('prev').disabled=current===0;
+ el('next').disabled=current===QUESTIONS.length-1;
+ const all=gradedCount()===QUESTIONS.length;
+ el('finish').classList.toggle('hide',!all);
+ const n=gradedCount();
+ el('bar').style.width=(100*n/QUESTIONS.length)+'%';
+ el('barbox').setAttribute('aria-valuenow',String(n));
+ el('progressNumber').textContent=n+'/'+QUESTIONS.length;
+ renderNav();renderTopicCounts();
+}
+function renderNav(){
+ const nav=el('nav');nav.replaceChildren();
+ QUESTIONS.forEach((q,i)=>{
+  const b=make('button','navnum',String(i+1)); b.type='button';
+  b.dataset.active=String(i===current);
+  b.dataset.state=graded[i]?(selections[i]===q.answer?'correct':'wrong'):'pending';
+  b.setAttribute('aria-label',`Ir a pregunta ${i+1}`);
+  b.setAttribute('aria-current',i===current?'step':'false');
+  b.addEventListener('click',()=>goTo(i)); nav.append(b);
+ });
+}
+function renderTopicCounts(){
+ const counts=el('topicCounts');counts.replaceChildren();
+ topics.forEach(t=>{
+  const indices=QUESTIONS.map((q,i)=>q.topic===t?i:-1).filter(i=>i>=0);
+  const checked=indices.filter(i=>graded[i]).length;
+  const r=make('div','topic'); r.append(make('span','',t),make('strong','',`${checked}/${indices.length}`));counts.append(r);
+ });
+}
+function goTo(i){ if(i<0||i>=QUESTIONS.length)return;current=i;render();window.scrollTo({top:0,behavior:'smooth'});}
+el('check').addEventListener('click',()=>{if(selections[current]===null||graded[current])return;graded[current]=true;render();});
+el('prev').addEventListener('click',()=>goTo(current-1));
+el('next').addEventListener('click',()=>goTo(current+1));
+el('finish').addEventListener('click',()=>{
+ if(gradedCount()!==QUESTIONS.length)return;
+ finalized=true;el('quiz').classList.add('hide');el('results').style.display='block';
+ const n=correctCount(), pct=n/QUESTIONS.length*100;
+ el('score').textContent=`${pct.toFixed(0)}/100`;
+ el('scoreNote').textContent=`${n} respuestas correctas de ${QUESTIONS.length}. ${n===25?'Dominio completo de los reactivos de práctica.':'Revisa las explicaciones y repite el cuestionario para reforzar los temas pendientes.'}`;
+ const block=el('topicResults');block.replaceChildren();
+ const title=make('h3','','Desempeño por tema');block.append(title);
+ for(const topic of topics){const idx=QUESTIONS.map((q,i)=>q.topic===topic?i:-1).filter(i=>i>=0);const good=idx.filter(i=>selections[i]===QUESTIONS[i].answer).length;const row=make('div','topic');row.append(make('span','',topic),make('strong','',`${good}/${idx.length}`));block.append(row);}
+ const rev=el('review');rev.replaceChildren();
+ QUESTIONS.forEach((q,i)=>{const ok=q.answer===selections[i];const row=make('div','review-row');row.append(make('h4','',`${i+1}. ${q.question}`));row.append(make('p',ok?'answer-good':'answer-bad',`Tu respuesta: ${LETTERS[selections[i]]} · ${q.options[selections[i]]}`));if(!ok)row.append(make('p','answer-good',`Respuesta correcta: ${LETTERS[q.answer]} · ${q.options[q.answer]}`));row.append(make('p','',q.explanation));rev.append(row);});
+ el('results').scrollIntoView({behavior:'smooth',block:'start'});
+});
+el('retry').addEventListener('click',()=>{selections=Array(QUESTIONS.length).fill(null);graded=Array(QUESTIONS.length).fill(false);current=0;finalized=false;el('results').style.display='none';el('quiz').classList.remove('hide');render();window.scrollTo({top:0,behavior:'smooth'});});
+function buildPrintable(){const ps=el('printSheet');ps.replaceChildren();ps.append(make('h1','', 'Economía Empresarial · Repaso Unidad 3 (25 reactivos)'));
+ QUESTIONS.forEach((q,i)=>{let div=make('div','print-item');div.append(make('h3','',`${i+1}. ${q.question}`));const ul=make('ol','');ul.type='A';q.options.forEach(x=>ul.append(make('li','',x)));div.append(ul);ps.append(div);});}
+buildPrintable();render();
+</script>
+</body>
+</html>
